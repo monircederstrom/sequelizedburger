@@ -1,6 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
 var Burger =  sequelize.define("Burger", {
-    burger_name: {
+	id: {
+		type: DataTypes.INTEGER,
+		autoIncrement: true,
+        primaryKey: true,
+		allowNull: false
+	},
+	burger_name: {
         type: DataTypes.STRING,
     	allowNull: false,
     	validate: { 
