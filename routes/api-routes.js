@@ -27,58 +27,57 @@ module.exports = function(app) {
         category: req.params.category
       }
     })
-    .then(function(dbPost) {
-      res.json(dbPost);
+    .then(function(dbburger) {
+      res.json(dbburger);
     });
   });
 
-  // Get rotue for retrieving a single post
-  app.get("/api/posts/:id", function(req, res) {
-    db.Post.findOne({
+  // Get rotue for retrieving a single burger
+  app.get("/api/burgers/:id", function(req, res) {
+    db.Burger.findOne({
       where: {
         id: req.params.id
       }
     })
-    .then(function(dbPost) {
-      res.json(dbPost);
+    .then(function(dbburger) {
+      res.json(dbburger);
     });
   });
 
-  // POST route for saving a new post
-  app.post("/api/posts", function(req, res) {
+  // POST route for saving a new burger
+  app.post("/api/burgers", function(req, res) {
     console.log(req.body);
-    db.Post.create({
-      title: req.body.title,
-      body: req.body.body,
-      category: req.body.category
+    db.Burger.create({
+      burger_name: req.body.title,
+      devoured: req.body.body
     })
-    .then(function(dbPost) {
-      res.json(dbPost);
+    .then(function(dbburger) {
+      res.json(dbburger);
     });
   });
 
-  // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function(req, res) {
-    db.Post.destroy({
+  // DELETE route for deleting burgers
+  app.delete("/api/burgers/:id", function(req, res) {
+    db.Burger.destroy({
       where: {
         id: req.params.id
       }
     })
-    .then(function(dbPost) {
-      res.json(dbPost);
+    .then(function(dbburger) {
+      res.json(dbburger);
     });
   });
 
-  // PUT route for updating posts
-  app.put("/api/posts", function(req, res) {
-    db.Post.update(req.body,
+  // PUT route for updating burgers
+  app.put("/api/burgers", function(req, res) {
+    db.Burger.update(req.body,
       {
         where: {
           id: req.body.id
         }
       })
-    .then(function(dbPost) {
-      res.json(dbPost);
+    .then(function(dbburger) {
+      res.json(dbburger);
     });
   });
 };
