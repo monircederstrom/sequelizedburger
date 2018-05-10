@@ -13,10 +13,11 @@ var db = require("../models");
 module.exports = function(app) {
 
   // GET route for getting all of the burgers
-  app.get("/api/burgers/", function(req, res) {
+  app.get("/", function(req, res) {
     db.Burger.findAll({})
     .then(function(dbburger) {
-      res.json(dbburger);
+      
+      res.render("index", {burgers: dbburger});
     });
   });
 
@@ -45,14 +46,14 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new burger
-  app.post("/api/burgers", function(req, res) {
+  app.post("/burgers/create", function(req, res) {
     console.log(req.body);
     db.Burger.create({
-      burger_name: req.body.title,
-      devoured: req.body.body
+      burger_name: req.body.b_name
     })
     .then(function(dbburger) {
       res.json(dbburger);
+      res.redirect("/burgers");
     });
   });
 
