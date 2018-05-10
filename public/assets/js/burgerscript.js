@@ -1,5 +1,4 @@
-
-    $(document).ready(function () {
+$(document).ready(function () {
         $("#eat").on("click", function(event) {
           event.preventDefault();
           var id = $(this).data("data-burgerid");
@@ -36,4 +35,3 @@
                       });
           });
         });
-      
