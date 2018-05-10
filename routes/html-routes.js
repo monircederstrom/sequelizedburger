@@ -14,7 +14,7 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/burger.html"));
+    res.sendFile(path.join(__dirname, "../public/burgers.html"));
   });
 
   app.get("/cms", function(req, res) {
@@ -23,7 +23,7 @@ module.exports = function(app) {
 
   // blog route loads blog.html
   app.get("/burgers", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/burger.html"));
+    res.sendFile(path.join(__dirname, "../public/burgers.html"));
   });
 
 };
